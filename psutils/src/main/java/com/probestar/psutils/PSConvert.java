@@ -1,6 +1,6 @@
-package com.allstar.psutils;
+package com.probestar.psutils;
 
-public class CinConvert {
+public class PSConvert {
 	public static String bytes2HexString(byte[] value) {
 		StringBuilder sb = new StringBuilder();
 		for (byte b : value) {

@@ -4,7 +4,7 @@
  * All rights reserved.
  *
  * @Title ResponsibilityChainContext.java
- * @Package com.allstar.cinutils.designpattern.chain
+ * @Package com.probestar.psutils.designpattern.chain
  * @author WangYanwei
  * @Email wangyanwei@feinno.com
  * @QQ 344137375
@@ -14,7 +14,7 @@
  *
  */
 
-package com.allstar.psutils.designpattern.chain;
+package com.probestar.psutils.designpattern.chain;
 
 public class ResponsibilityChainContext {
 	private ResponsibilityChain _chain;

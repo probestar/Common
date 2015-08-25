@@ -1,19 +1,19 @@
-package com.allstar.psutils.datastructure;
+package com.probestar.psutils.datastructure;
 
 
-public class CinLinkedList<K> {
+public class PSLinkedList<K> {
 
 	/**
 	 * 
 	 */
-	private CinLinkedNode<K> _head;
-	private CinLinkedNode<K> _tail;
-	private CinLinkedNode<K> _current;
+	private PSLinkedNode<K> _head;
+	private PSLinkedNode<K> _tail;
+	private PSLinkedNode<K> _current;
 	private long _length;
 
-	public CinLinkedList() {
-		_head = new CinLinkedNode<K>(null);
-		_tail = new CinLinkedNode<K>(null);
+	public PSLinkedList() {
+		_head = new PSLinkedNode<K>(null);
+		_tail = new PSLinkedNode<K>(null);
 		_head.next = _tail;
 		_tail.previous = _head;
 		_current = _head;
@@ -28,8 +28,8 @@ public class CinLinkedList<K> {
 		return _length > 0;
 	}
 
-	public synchronized CinLinkedNode<K> put(K object) {
-		CinLinkedNode<K> node = new CinLinkedNode<K>(object);
+	public synchronized PSLinkedNode<K> put(K object) {
+		PSLinkedNode<K> node = new PSLinkedNode<K>(object);
 		_tail.previous.next = node;
 		node.previous = _tail.previous;
 		_tail.previous = node;
@@ -39,7 +39,7 @@ public class CinLinkedList<K> {
 		return node;
 	}
 
-	private synchronized void put(CinLinkedNode<K> node) {
+	private synchronized void put(PSLinkedNode<K> node) {
 		_tail.previous.next = node;
 		node.previous = _tail.previous;
 		_tail.previous = node;
@@ -51,27 +51,27 @@ public class CinLinkedList<K> {
 		_current = _head;
 	}
 
-	public synchronized CinLinkedNode<K> takeAwayFirst() {
+	public synchronized PSLinkedNode<K> takeAwayFirst() {
 		if (_head.next.equals(_tail))
 			return null;
 		else {
-			CinLinkedNode<K> result = _head.next;
+			PSLinkedNode<K> result = _head.next;
 			remove(result);
 			return result;
 		}
 	}
 
-	public synchronized CinLinkedNode<K> takeAwayLast() {
+	public synchronized PSLinkedNode<K> takeAwayLast() {
 		if (_tail.previous.equals(_head))
 			return null;
 		else {
-			CinLinkedNode<K> result = _tail.previous;
+			PSLinkedNode<K> result = _tail.previous;
 			remove(result);
 			return result;
 		}
 	}
 
-	public synchronized CinLinkedNode<K> get() {
+	public synchronized PSLinkedNode<K> get() {
 		if (_current.next.equals(_tail))
 			return null;
 		else {
@@ -80,14 +80,14 @@ public class CinLinkedList<K> {
 		}
 	}
 
-	public synchronized void kick(CinLinkedNode<K> node) {
+	public synchronized void kick(PSLinkedNode<K> node) {
 		if (node == null)
 			return;
 		remove(node);
 		put(node);
 	}
 
-	public synchronized boolean remove(CinLinkedNode<K> node) {
+	public synchronized boolean remove(PSLinkedNode<K> node) {
 		if (node == null)
 			return false;
 		if (node.next == null)

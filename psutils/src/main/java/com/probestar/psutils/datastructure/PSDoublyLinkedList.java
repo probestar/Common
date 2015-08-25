@@ -4,7 +4,7 @@
  * All rights reserved.
  *
  * @Title DoublyLinkedList.java
- * @Package com.allstar.cinutils.datastructure
+ * @Package com.probestar.psutils.datastructure
  * @author WangYanwei
  * @Email wangyanwei@feinno.com
  * @QQ 344137375
@@ -14,16 +14,16 @@
  *
  */
 
-package com.allstar.psutils.datastructure;
+package com.probestar.psutils.datastructure;
 
 import java.util.Iterator;
 
-public class DoublyLinkedList<E> implements Iterable<E> {
+public class PSDoublyLinkedList<E> implements Iterable<E> {
 	private int _count;
 	private DoublyLinkedListNode<E> _head;
 	private DoublyLinkedListNode<E> _tail;
 
-	public DoublyLinkedList() {
+	public PSDoublyLinkedList() {
 		_count = 0;
 		_head = new DoublyLinkedListNode<E>(null);
 		_tail = new DoublyLinkedListNode<E>(null);

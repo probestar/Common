@@ -3,8 +3,8 @@
  * Copyright (c) 2015
  * All rights reserved.
  *
- * @Title CinTracer.java
- * @Package com.allstar.cinstack.utils
+ * @Title PSTracer.java
+ * @Package com.probestar.psutils
  * @author WangYanwei
  * @Email wangyanwei@feinno.com
  * @QQ 344137375
@@ -14,12 +14,12 @@
  *
  */
 
-package com.allstar.psutils;
+package com.probestar.psutils;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
-public class CinTracer {
+public class PSTracer {
 	static {
 		try {
 			PropertyConfigurator.configure("log4j.properties");
@@ -30,11 +30,11 @@ public class CinTracer {
 
 	private Logger _tracer;
 
-	public static CinTracer getInstance(Class<?> c) {
-		return new CinTracer(c);
+	public static PSTracer getInstance(Class<?> c) {
+		return new PSTracer(c);
 	}
 
-	public CinTracer(Class<?> c) {
+	public PSTracer(Class<?> c) {
 		_tracer = Logger.getLogger(c);
 	}
 

@@ -3,8 +3,8 @@
  * Copyright (c) 2015
  * All rights reserved.
  *
- * @Title CinConsole.java
- * @Package com.allstar.cinutils
+ * @Title PSConsole.java
+ * @Package com.probestar.psutils
  * @author ProbeStar
  * @Email probestar@qq.com
  * @QQ 344137375
@@ -14,12 +14,12 @@
  *
  */
 
-package com.allstar.psutils;
+package com.probestar.psutils;
 
 import java.nio.ByteBuffer;
 
-public class CinConsole {
-	private static CinTracer _tracer = CinTracer.getInstance(CinConsole.class);
+public class PSConsole {
+	private static PSTracer _tracer = PSTracer.getInstance(PSConsole.class);
 
 	public static String readLine() {
 		String s = null;
@@ -32,7 +32,7 @@ public class CinConsole {
 			} while (b != 10);
 			s = new String(buf.array(), 0, buf.position() - 1);
 		} catch (Throwable t) {
-			_tracer.error("CinConsole.readLine error.", t);
+			_tracer.error("PSConsole.readLine error.", t);
 		}
 		return s;
 	}

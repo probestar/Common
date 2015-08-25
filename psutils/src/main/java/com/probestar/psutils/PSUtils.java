@@ -3,8 +3,8 @@
  * Copyright (c) 2015
  * All rights reserved.
  *
- * @Title CinUtils.java
- * @Package com.allstar.cinutils
+ * @Title PSUtils.java
+ * @Package com.probestar.psutils
  * @author WangYanwei
  * @Email wangyanwei@feinno.com
  * @QQ 344137375
@@ -14,12 +14,12 @@
  *
  */
 
-package com.allstar.psutils;
+package com.probestar.psutils;
 
 import java.nio.ByteBuffer;
 import java.util.UUID;
 
-public class CinUtils {
+public class PSUtils {
 	public static ByteBuffer getUUIDBuffer() {
 		ByteBuffer buffer = ByteBuffer.allocate(16);
 		UUID uuid = UUID.randomUUID();

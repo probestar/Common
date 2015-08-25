@@ -4,7 +4,7 @@
  * All rights reserved.
  *
  * @Title ResponsibilityChain.java
- * @Package com.allstar.cinutils.designpattern.chain
+ * @Package com.probestar.psutils.designpattern.chain
  * @author WangYanwei
  * @Email wangyanwei@feinno.com
  * @QQ 344137375
@@ -14,15 +14,15 @@
  *
  */
 
-package com.allstar.psutils.designpattern.chain;
+package com.probestar.psutils.designpattern.chain;
 
 import java.util.Iterator;
 
-import com.allstar.psutils.datastructure.DoublyLinkedList;
+import com.probestar.psutils.datastructure.PSDoublyLinkedList;
 
 public class ResponsibilityChain {
 
-	private DoublyLinkedList<ResponsibilityChainHandler> _handlers;
+	private PSDoublyLinkedList<ResponsibilityChainHandler> _handlers;
 	private ResponsibilityChainContext _context;
 
 	public ResponsibilityChain() {
@@ -30,7 +30,7 @@ public class ResponsibilityChain {
 	}
 
 	public ResponsibilityChain(ResponsibilityChainContext context) {
-		_handlers = new DoublyLinkedList<ResponsibilityChainHandler>();
+		_handlers = new PSDoublyLinkedList<ResponsibilityChainHandler>();
 		_context = context;
 		_context.setChain(this);
 	}

@@ -1,15 +1,15 @@
-package com.allstar.psutils.datastructure;
+package com.probestar.psutils.datastructure;
 
 import java.util.HashMap;
 import java.util.Set;
 
-public class CinHashMap<K, V> {
-	private CinLinkedList<V> _list;
-	private HashMap<K, CinLinkedNode<V>> _map;
+public class PSHashMap<K, V> {
+	private PSLinkedList<V> _list;
+	private HashMap<K, PSLinkedNode<V>> _map;
 
-	public CinHashMap() {
-		_list = new CinLinkedList<V>();
-		_map = new HashMap<K, CinLinkedNode<V>>();
+	public PSHashMap() {
+		_list = new PSLinkedList<V>();
+		_map = new HashMap<K, PSLinkedNode<V>>();
 	}
 
 	public Set<K> KeySet() {
@@ -20,14 +20,14 @@ public class CinHashMap<K, V> {
 		_map.put(key, _list.put(value));
 	}
 
-	public synchronized CinLinkedNode<V> remove(K key) {
-		CinLinkedNode<V> v = _map.remove(key);
+	public synchronized PSLinkedNode<V> remove(K key) {
+		PSLinkedNode<V> v = _map.remove(key);
 		_list.remove(v);
 		return v;
 	}
 
 	public synchronized V get(K key) {
-		CinLinkedNode<V> node = _map.get(key);
+		PSLinkedNode<V> node = _map.get(key);
 		if (node != null && node.object() != null)
 			return node.object();
 		else
@@ -35,7 +35,7 @@ public class CinHashMap<K, V> {
 	}
 
 	public synchronized V get(K key, V defaultValue) {
-		CinLinkedNode<V> node = _map.get(key);
+		PSLinkedNode<V> node = _map.get(key);
 		if (node != null && node.object() != null)
 			return node.object();
 		else
@@ -43,7 +43,7 @@ public class CinHashMap<K, V> {
 	}
 
 	public synchronized V takeAway(K key) {
-		CinLinkedNode<V> node = _map.get(key);
+		PSLinkedNode<V> node = _map.get(key);
 		this.remove(key);
 		if (node != null && node.object() != null)
 			return node.object();
@@ -56,7 +56,7 @@ public class CinHashMap<K, V> {
 	}
 
 	public V linkedListGet() {
-		CinLinkedNode<V> node = _list.get();
+		PSLinkedNode<V> node = _list.get();
 		if (node != null && node.object() != null)
 			return node.object();
 		else
