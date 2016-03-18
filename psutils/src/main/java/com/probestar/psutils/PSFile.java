@@ -1,6 +1,11 @@
 package com.probestar.psutils;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.nio.MappedByteBuffer;
+import java.nio.channels.FileChannel;
+import java.security.MessageDigest;
 import java.util.ArrayList;
 
 import com.google.common.io.Files;
@@ -44,5 +49,33 @@ public class PSFile {
 	public static boolean isMovie(File file) {
 		String extension = Files.getFileExtension(file.getAbsolutePath()).toLowerCase();
 		return _movieExtensionNames.contains(extension);
+	}
+
+	public static byte[] getHashCode(File file) {
+		return getHashCode(file, file.length());
+	}
+
+	public static byte[] getHashCode(File file, long hashSize) {
+		byte[] value = null;
+		FileInputStream in = null;
+		try {
+			in = new FileInputStream(file);
+			MappedByteBuffer byteBuffer = in.getChannel().map(FileChannel.MapMode.READ_ONLY, 0,
+					file.length() > hashSize ? hashSize : file.length());
+			MessageDigest md5 = MessageDigest.getInstance("MD5");
+			md5.update(byteBuffer);
+			value = md5.digest();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (null != in) {
+				try {
+					in.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return value;
 	}
 }
