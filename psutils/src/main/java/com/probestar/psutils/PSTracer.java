@@ -16,18 +16,10 @@
 
 package com.probestar.psutils;
 
-import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class PSTracer {
-	static {
-		try {
-			PropertyConfigurator.configure("log4j.properties");
-		} catch (Throwable t) {
-			t.printStackTrace();
-		}
-	}
-
 	private Logger _tracer;
 
 	public static PSTracer getInstance(Class<?> c) {
@@ -35,7 +27,7 @@ public class PSTracer {
 	}
 
 	public PSTracer(Class<?> c) {
-		_tracer = Logger.getLogger(c);
+		_tracer = LoggerFactory.getLogger(c);
 	}
 
 	public void debug(String debug) {
@@ -76,17 +68,5 @@ public class PSTracer {
 
 	public void error(String error, Throwable t) {
 		_tracer.error(error, t);
-	}
-
-	public void fatal(String fatal) {
-		_tracer.fatal(fatal);
-	}
-
-	public void fatal(String fatal, Object... args) {
-		_tracer.fatal(String.format(fatal, args));
-	}
-
-	public void fatal(String fatal, Throwable t) {
-		_tracer.fatal(fatal, t);
 	}
 }
