@@ -16,9 +16,9 @@
 
 package com.probestar.psutils.designpattern.chain;
 
-import java.util.Iterator;
-
 import com.probestar.psutils.datastructure.PSDoublyLinkedList;
+
+import java.util.Iterator;
 
 public class ResponsibilityChain {
 
